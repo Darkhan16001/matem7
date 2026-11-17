@@ -1,0 +1,892 @@
+
+:root {
+  --bg: #081626;
+  --panel: #172f48;
+  --panel2: #203c57;
+  --border: #4d7391;
+
+  --white: #f5f9ff;
+  --muted: #b9cfe2;
+
+  --blue: #75e9f5;
+  --green: #61e6aa;
+  --yellow: #ffdb86;
+  --red: #ff8497;
+  --purple: #c9afff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: white;
+  background: #1c4664;
+  border: 1px solid #547f9c;
+  border-radius: 11px;
+
+  padding: 11px 13px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+button:hover {
+  background: #2a6d90;
+}
+
+button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.app {
+  height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    radial-gradient(
+      ellipse at 90% 0%,
+      #295b8560,
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse at 0% 100%,
+      #5d438b45,
+      transparent 55%
+    ),
+    var(--bg);
+}
+
+/* ЖОҒАРҒЫ БӨЛІК */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex-shrink: 0;
+  gap: 13px;
+  padding: 10px 18px;
+
+  background: #091b30;
+  border-bottom: 1px solid #ffffff25;
+}
+
+.brand,
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand {
+  min-width: 0;
+}
+
+.logo {
+  width: 47px;
+  height: 47px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #13bcd8,
+    #9169f0
+  );
+
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.brand strong {
+  font-size: 19px;
+}
+
+.brand small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.chip {
+  background: #1b3650;
+  border: 1px solid var(--border);
+
+  border-radius: 9px;
+  padding: 10px;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.progress {
+  height: 5px;
+  flex-shrink: 0;
+  background: #1c354c;
+}
+
+.progress > div {
+  height: 100%;
+  width: 0%;
+
+  background: linear-gradient(
+    90deg,
+    var(--blue),
+    var(--purple)
+  );
+
+  transition: width .2s;
+}
+
+/* СОЛ ЖАҚТАҒЫ БАТЫРМАЛАР */
+
+.workspace {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.sidebar {
+  width: 195px;
+  flex-shrink: 0;
+
+  background: #0d243a;
+  border-right: 1px solid #ffffff27;
+
+  padding: 12px 9px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  color: var(--yellow);
+
+  font-weight: 900;
+  font-size: 12px;
+
+  margin: 8px 2px 9px;
+}
+
+.sidebar button {
+  flex-shrink: 0;
+  text-align: left;
+
+  font-size: 13px;
+  padding: 12px 9px;
+}
+
+.sidebar button.active {
+  background: #0b7892;
+  border-color: #84e8f2;
+}
+
+.sidebar .calc-launch {
+  background: #155e71;
+  border-color: #4aabc1;
+}
+
+.sidebar .next-button {
+  background: #11735f;
+  border-color: #51c29a;
+}
+
+.separator {
+  height: 1px;
+  flex-shrink: 0;
+
+  background: #ffffff35;
+  margin: 6px 0;
+}
+
+/* НЕГІЗГІ САБАҚ */
+
+.content {
+  flex: 1;
+  min-width: 0;
+
+  overflow-y: auto;
+  padding: 25px 4% 35px;
+}
+
+.slide {
+  max-width: 1450px;
+  margin: 0 auto;
+
+  animation: enter .2s ease;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  color: var(--blue);
+
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 1px;
+
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: clamp(37px, 4.4vw, 70px);
+  line-height: 1.17;
+
+  margin: 12px 0 25px;
+}
+
+h2 {
+  font-size: clamp(29px, 3vw, 49px);
+  line-height: 1.25;
+
+  margin: 12px 0 24px;
+}
+
+h3 {
+  font-size: clamp(22px, 2vw, 32px);
+  line-height: 1.35;
+
+  margin: 0 0 14px;
+}
+
+p,
+li {
+  font-size: clamp(19px, 1.8vw, 28px);
+  line-height: 1.75;
+}
+
+.gradient {
+  background: linear-gradient(
+    90deg,
+    #77f5ed,
+    #a8c1ff,
+    #d5b4ff
+  );
+
+  background-clip: text;
+  color: transparent;
+}
+
+/* ТҮСТІ БЛОКТАР */
+
+.card {
+  min-width: 0;
+
+  background: linear-gradient(
+    145deg,
+    #1c364f,
+    #10233a
+  );
+
+  padding: 25px;
+  margin: 16px 0;
+
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.card p {
+  margin: 10px 0;
+}
+
+.card.blue {
+  border-left: 5px solid var(--blue);
+}
+
+.card.green {
+  border-left: 5px solid var(--green);
+}
+
+.card.yellow {
+  border-left: 5px solid var(--yellow);
+}
+
+.card.red {
+  border-left: 5px solid var(--red);
+}
+
+.card.purple {
+  border-left: 5px solid var(--purple);
+}
+
+.card.blue h3 {
+  color: var(--blue);
+}
+
+.card.green h3 {
+  color: var(--green);
+}
+
+.card.yellow h3 {
+  color: var(--yellow);
+}
+
+.card.red h3 {
+  color: var(--red);
+}
+
+.card.purple h3 {
+  color: var(--purple);
+}
+
+.blue-text {
+  color: var(--blue);
+}
+
+.green-text {
+  color: var(--green);
+}
+
+.yellow-text {
+  color: var(--yellow);
+}
+
+.red-text {
+  color: var(--red);
+}
+
+/* НАҚТЫ МАТЕМАТИКАЛЫҚ ФОРМУЛАЛАР */
+
+.math-box {
+  padding: 20px 13px;
+  margin: 16px 0;
+
+  background: #092035;
+  border: 1px solid #607e99;
+  border-radius: 14px;
+
+  color: #ffe1a0;
+
+  text-align: center;
+  font-size: clamp(23px, 2.7vw, 42px);
+
+  overflow-x: auto;
+}
+
+.math-box mjx-container {
+  max-width: none;
+}
+
+/* ДӘПТЕРЛІК КОНСПЕКТ */
+
+.notebook {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #152e45 0px,
+      #152e45 43px,
+      #315477 44px
+    );
+
+  border: 1px solid #527794;
+  border-left: 5px solid var(--yellow);
+
+  border-radius: 0 15px 15px 0;
+
+  padding: 22px;
+  margin: 18px 0;
+}
+
+.notebook p {
+  color: #f7e9c9;
+  margin: 7px 0;
+}
+
+.step {
+  background: #123c34;
+
+  border-left: 4px solid var(--green);
+  border-radius: 0 12px 12px 0;
+
+  padding: 16px 19px;
+  margin: 12px 0;
+}
+
+.step strong {
+  color: var(--green);
+  font-size: 16px;
+}
+
+.step .math-box {
+  margin: 10px 0 0;
+}
+
+/* ӨЗІНДІК ЖҰМЫС */
+
+.self-task {
+  border: 1px solid #7187a8;
+  border-left: 5px solid var(--purple);
+
+  border-radius: 17px;
+  padding: 20px;
+  margin: 17px 0;
+
+  background: #1b304c;
+}
+
+.self-task h3 {
+  color: var(--purple);
+}
+
+.action {
+  padding: 12px 18px;
+  margin: 9px 8px 7px 0;
+
+  background: #176280;
+  font-size: 16px;
+}
+
+.solution {
+  padding: 16px;
+  margin: 12px 0;
+
+  background: #123c34;
+  border: 1px solid #59c698;
+  border-radius: 13px;
+}
+
+.solution[hidden] {
+  display: none;
+}
+
+/* ДЕҢГЕЙЛІК ТАПСЫРМАЛАР */
+
+.level-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  padding: 17px 20px;
+  margin: 15px 0;
+
+  border: 1px solid #628aa6;
+  border-radius: 15px;
+  background: #1a3952;
+
+  color: var(--yellow);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 15px;
+}
+
+.level-task {
+  min-width: 0;
+
+  border: 1px solid #5b809b;
+  border-radius: 18px;
+
+  background: #19334d;
+  padding: 19px;
+}
+
+.level-task h3 {
+  color: var(--blue);
+}
+
+.answer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.answer-row input {
+  flex: 1;
+  min-width: 100px;
+
+  color: white;
+  background: #091b2b;
+
+  border: 1px solid #7291aa;
+  border-radius: 10px;
+
+  padding: 12px;
+  font-size: 19px;
+}
+
+.feedback {
+  margin: 13px 0;
+
+  color: var(--yellow);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.feedback.success {
+  color: var(--green);
+}
+
+/* КОМАНДАЛЫҚ ОЙЫН */
+
+.scores {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 12px;
+
+  margin: 20px 0;
+}
+
+.team {
+  text-align: center;
+
+  padding: 17px 8px;
+
+  border: 2px solid #547c99;
+  border-radius: 15px;
+
+  background: #1c3a55;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.team.current {
+  border-color: var(--yellow);
+  background: #493c25;
+}
+
+.team strong {
+  display: block;
+
+  color: var(--yellow);
+
+  font-size: 36px;
+  margin-top: 9px;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 13px;
+}
+
+.answers button {
+  min-height: 70px;
+  text-align: left;
+
+  padding: 17px;
+
+  font-size: clamp(17px, 1.7vw, 25px);
+}
+
+.answers button.correct {
+  background: #08724d;
+  border-color: #64e6ad;
+}
+
+.answers button.wrong {
+  background: #89384e;
+  border-color: #ff8ca0;
+}
+
+/* ТӨМЕНГІ ПАНЕЛЬ */
+
+.footer {
+  flex-shrink: 0;
+
+  background: #091b2e;
+  border-top: 1px solid #ffffff25;
+}
+
+.time-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+  padding: 10px 18px;
+}
+
+.time-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.time-cell small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.time-cell strong {
+  font-size: 20px;
+  color: var(--yellow);
+}
+
+.timer-buttons {
+  display: flex;
+  gap: 7px;
+}
+
+.timer-buttons button {
+  font-size: 13px;
+  padding: 11px 12px;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 22px;
+  padding: 10px 18px;
+
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer-bottom strong {
+  color: white;
+}
+
+/* ШАҒЫН ЖЫЛЖЫМАЛЫ КАЛЬКУЛЯТОРЛАР */
+
+.calculator {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+
+  top: 105px;
+  left: 205px;
+
+  width: 215px;
+  max-width: calc(100vw - 12px);
+  max-height: calc(100dvh - 12px);
+  overflow-y: auto;
+
+  padding: 7px;
+
+  background: #142d45;
+  border: 1px solid #7ca0bd;
+  border-radius: 15px;
+
+  box-shadow: 0 18px 50px #000a;
+
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.calculator.visible {
+  display: block;
+}
+
+.calculator.dragging {
+  cursor: grabbing;
+}
+
+.calc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 5px;
+  padding: 4px 2px 8px;
+
+  font-size: 11px;
+}
+
+.calc-close {
+  background: #a43d53;
+  border: 0;
+
+  padding: 4px 7px;
+  font-size: 11px;
+}
+
+.calc-display {
+  height: 41px;
+
+  padding: 9px 6px;
+  margin-bottom: 6px;
+
+  border: 1px solid #60839d;
+  border-radius: 8px;
+
+  background: #061625;
+  color: white;
+
+  font-size: 18px;
+  text-align: right;
+
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.calc-keys {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 3px;
+}
+
+.calc-keys button {
+  min-height: 30px;
+
+  padding: 5px 1px;
+  font-size: 12px;
+
+  background: #2c4c67;
+  border: 0;
+  border-radius: 6px;
+
+  touch-action: none;
+}
+
+.calc-keys button.operator {
+  background: #176a93;
+}
+
+.calc-keys button.trig {
+  background: #6b4a9e;
+}
+
+.calc-keys button.equal {
+  background: #0b845d;
+}
+
+.calc-keys button.clear {
+  background: #a33e54;
+}
+
+/* ТЕЛЕФОН ЖӘНЕ КІШІ ЭКРАН */
+
+@media(max-width: 900px) {
+  .header {
+    padding: 8px;
+  }
+
+  .brand strong {
+    font-size: 15px;
+  }
+
+  .brand small {
+    font-size: 10px;
+  }
+
+  .header-info .chip {
+    display: none;
+  }
+
+  .sidebar {
+    width: 110px;
+    padding: 7px 5px;
+  }
+
+  .sidebar-title {
+    font-size: 10px;
+  }
+
+  .sidebar button {
+    font-size: 11px;
+    padding: 10px 5px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 17px;
+  }
+
+  .level-grid,
+  .answers {
+    grid-template-columns: 1fr;
+  }
+
+  .scores {
+    gap: 5px;
+  }
+
+  .team {
+    padding: 11px 4px;
+    font-size: 13px;
+  }
+
+  .team strong {
+    font-size: 24px;
+  }
+
+  .time-info {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 9px;
+  }
+
+  .time-cell strong {
+    font-size: 16px;
+  }
+
+  .time-cell small {
+    font-size: 10px;
+  }
+
+  .calculator {
+    left: 8px;
+  }
+}
+
+@media(max-height: 640px) {
+  .header {
+    padding: 5px 10px;
+  }
+
+  .content {
+    padding-top: 10px;
+  }
+
+  .time-info {
+    padding: 5px 10px;
+  }
+
+  .footer-bottom {
+    padding: 6px 10px;
+  }
+}
